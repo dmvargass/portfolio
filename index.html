@@ -1,0 +1,51 @@
+<!DOCTYPE html> <!--Llamamos toda la estructura basica de HTML con ! -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="./styles/style.css"> <!--Linkeamos el CSS con HTML-->
+</head>
+<body>
+    <header class="header"> <!--Parte superior de la pagina-->
+        <nav class="header__menu"> <!--navegacion-->
+            <a class="header__menu__link" href="index.html">Home</a> 
+            <!--enlace entre paginas-->
+            <a class="header__menu__link" href="about.html">Portfolio</a>
+            <a class="header__menu__link" href="contactme.html">Contact Me</a>
+        </nav>
+    </header> 
+    <!--main es la parte central de la pagina-->
+    <main class="presentacion"> <!--selectores de clase, deben nombrarse en HTML-->
+        <section class="presentacion__contenido">  
+            <!--Section es una etiqueta para definir secciones-->
+            <h1 class="presentacion__contenido__titulo"> <!--titulo-->
+                Adaptable & Creative Graphic Designer 
+                <strong class="titulo-destaque">Delivering Impactful Visual Communication!</strong>
+            </h1> <!--Solamente puede haber un h1-->
+            <p class="presentacion__contenido__texto"> <!--Parrafo-->
+                For over five years, I've been translating ideas into impactful visual stories. 
+                From simplifying complex data, to crafting engaging educational materials and 
+                dynamic marketing assets. My adaptability and creative drive have been central. 
+                Proficient in the Adobe Creative Suite and fueled by a passion for problem-solving, 
+                I can contribute my design and communication skills to create truly resonant visual projects.
+            </p>
+            <div class="presentacion__enlaces"> <!--Tag no semantica-->
+                <h2 class="presentacion__enlaces__subtitulo">Stay connected: Find me on social media</h2>
+                <a class="presentacion__enlaces__link" href="https://www.github.com/dmvargass/"> 
+                    <img src="./assets/github.png"> <!--Icono dentro del boton, ./ indica donde se encuentra la imagen-->
+                    GitHub</a>
+                <!--a= Hipervinculo-->
+                <a class="presentacion__enlaces__link" href="https://www.linkedin.com/in/deisy-marcela-vargas-salamanca-06174214/">
+                    <img src="./assets/linkedin.png">
+                    Linkedin</a>    
+            </div>    
+        </section>
+        <img class="presentacion__imagen" src="./assets/Imagen.jpg" alt="Marcela Vargas Image"> <!--Imagen, usar alt para describir la imagen-->
+    </main>
+    <footer class="footer"> <!--Parte inferior de la pagina-->
+        <p>Developed by Marcela Vargas</p>
+    </footer> 
+</body>
+</html>

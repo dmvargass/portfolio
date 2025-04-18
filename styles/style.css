@@ -1,0 +1,182 @@
+@import url('https://fonts.googleapis.com/css2?family=Krona+One&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+/*Importar fuentes, todas las fuentes aparecen en un solo link*/
+
+:root{ /*seudo clase para declarar variables*/
+    /*Variables CSS que se declaran cuando un valor (color, fuente, etc) 
+    se usa multiples veces, asi si se requiere cambiar solamente se hace 
+    una vez en todo el documento*/
+    --color-primario:#000000;
+    --color-secundario:#F6F6F6;
+    --color-terciario:#22D4FD;
+    --color-hover: #272727;
+
+    --fuente-montserrat: "montserrat", sans-serif; 
+    --fuente-krona: "krona one", sans-serif;
+}
+
+*{
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    background-color: var(--color-primario);
+    color: var(--color-secundario);
+    box-sizing: border-box; /*contiene elementos en cajas,
+    con border-box se incluyen bordes y margenes*/
+}
+
+.header{
+    padding: 2% 0% 0% 15%; /*orden: top, right, bottom, left*/
+}
+
+.header__menu{
+    display: flex;
+    gap: 80px;
+}
+
+.header__menu__link{
+    font-family: var(--fuente-montserrat);
+    font-size:  1.5rem; /*Medida REM para la accesibilidad en la fuente*/
+    font-weight: 600; 
+    color: var(--color-terciario);
+    text-decoration: none;
+}
+
+.presentacion{
+    display: flex; /*Alineacion de elementos*/
+    align-items: center;
+    justify-content: space-between;
+    padding: 6% 15%; /*Primer valor altura, segundo valor ancho*/
+    gap: 82px;
+}
+
+.presentacion__contenido{
+    width: 50%; /*Medida en porcentajes para diseno responsivo*/
+    display: flex;
+    flex-direction: column;
+    gap: 40px; /*FlexBox, espacio entre items*/
+}
+
+.presentacion__contenido__titulo{
+    display: flex;
+    align-self: self-start;
+    flex-direction: column;
+    font-size: 2.25rem;
+    font-family: var(--fuente-krona); /*Uso de fuente desde la variable  */
+}
+
+.titulo-destaque{ /*selectores de clase, se llaman usando .*/
+    color: var(--color-terciario);
+}
+
+.presentacion__contenido__texto{ /*Parrafo*/
+    font-size: 1.5rem;
+    font-family: var(--fuente-montserrat);
+}
+
+.presentacion__enlaces{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center; /*Utilizado porq ue el eje es vertical*/
+    gap: 32px;
+}
+
+.presentacion__enlaces__subtitulo{
+    font-family: var(--fuente-krona);
+    font-size: 1.5rem;
+    font-weight: 400;
+}
+
+.presentacion__enlaces__link{ /*Estilizacion de botones*/
+    width: 50%; 
+    text-align: center;
+    padding: 21.5px 0; 
+    /*Padding es el espacio entre el borde del elemento y su contenido,
+    el primer valor correcponde a la altura y el segundo (0) al ancho*/
+    border-radius: 8px; /*Borde redondo*/
+    font-family: var(--fuente-montserrat);
+    font-size: 1.5rem;
+    font-weight: 600; /*El 600 indica SemiBold*/
+    text-decoration: none;
+    color: var(--color-secundario);
+    border: 2px solid var(--color-terciario); /*tamano de borde, tipo y color*/
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.presentacion__enlaces__link:hover{
+    /*:hover cambia color del elemento cuando colocamos el cursor encima
+    puede tambien desplegar un menu*/
+    background-color: var(--color-hover);
+}
+
+.presentacion__imagen{
+    width: 50%;
+}
+
+.portafolio{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 6% 15%; 
+}
+
+.portafolio__imagen{
+    width: 20%;
+    margin-right: 10px;
+    margin-top: 10px;
+}
+
+.portafolio__imagen:hover{
+    width: 30%;
+}
+
+.portafolio__titulo{
+    display: flex;
+    align-self: self-start;
+    flex-direction: column;
+    font-size: 2.25rem;
+    font-family: var(--fuente-krona); 
+    margin-top: 6%;
+    margin-left: 15%;
+}
+
+.footer{
+    background-color: var(--color-terciario);
+    padding: 24px;
+    color: var(--color-primario);
+    text-align: center;
+    font-family: var(--fuente-montserrat);
+    font-size: 1.5rem;
+    font-weight: 400; /*400 indica regular*/
+}
+
+@media (max-width: 1200px){ /*Diseno responsivo*/
+    .header{
+        padding: 10%; /*Espacio superior del header*/
+    }
+
+    .header__menu{ 
+        /*Centralizar el header, se una esta clase porque ya existe un display flex*/
+        justify-content: center;
+    }
+
+    .presentacion{
+        flex-direction: column-reverse; /*Orden de los elementos*/
+        padding: 5%;
+    }
+
+    .presentacion__contenido{
+        width: auto; /*Se adapta al elemento padre*/
+    }
+
+    .portafolio{
+        width: auto;
+        padding: 5%;
+    }
+
+}
