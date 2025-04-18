@@ -14,12 +14,50 @@
             <a class="header__menu__link" href="contactme.html">Contact Me</a>
         </nav>
     </header> 
-    <main class="presentacion">
-        <h1 class="presentacion__contenido__titulo">Contact Me</h1>
+    <main class="contact">
+        <h1 class="portafolio__titulo">Contact Me</h1>
+
+        <div class="contact-form">
+            <form id="contact-form">
+              <ul>
+                <li><input type="text" name="name" placeholder="Enter your name" required /></li>
+                <li><input type="email" name="email" placeholder="Input email address" required /></li>
+                <li><input type="text" name="subject" placeholder="Subject of your email" required /></li>
+                <li><textarea name="message" placeholder="Type your message" required></textarea></li>
+                <li><input type="submit" value="Send" /></li>
+              </ul>
+            </form>
+        </div>
         
     </main>
     <footer class="footer"> 
         <p>Developed by Marcela Vargas</p>
     </footer> 
+
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script>
+        (function () {
+        emailjs.init("ryFQ3wf6J1MpDa6gB"); 
+        })();
+
+
+        document.getElementById('contact-form').addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        emailjs.sendForm('service_7oe248j', 'template_4khtkgg', this, 'ryFQ3wf6J1MpDa6gB');
+
+        emailjs.sendForm('service_7oe248j', 'template_r5rt7fn', this, 'ryFQ3wf6J1MpDa6gB')
+            .then(
+            () => {
+                alert('Your message has been sent successfully.');
+                this.reset();
+            },
+            (error) => {
+                console.error(error);
+                alert('Failed to send message. Please try again.');
+            }
+            );
+        });
+  </script>
 </body>
 </html>
