@@ -1,37 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
-    <link rel="stylesheet" href="./styles/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Portfolio</title>
+  <link rel="stylesheet" href="./styles/style.css"/>
+  <style>
+    dialog::backdrop {
+      background: rgba(0, 0, 0, 0.6);
+    }
+
+    .modal-content {
+      position: relative;
+      max-width: 90vw;
+      max-height: 90vh;
+    }
+
+    .modal-content img {
+      max-width: 80%;
+      height: auto;
+      border-radius: 10px;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      background: transparent;
+      border: none;
+      font-size: 2rem;
+      color: #fff;
+      cursor: pointer;
+    }
+  </style>
 </head>
 <body>
-    <header class="header"> 
-        <nav class="header__menu">
-            <a class="header__menu__link" href="index.html">Home</a> 
-            <a class="header__menu__link" href="about.html">Portfolio</a>
-            <a class="header__menu__link" href="contactme.html">Contact Me</a>
-        </nav>
-    </header> 
-    <main>
-        <h1 class="portafolio__titulo">My Portfolio</h1>
-        <section class="portafolio">
-            <img class="portafolio__imagen" src="./assets/ausentismo.jpg">
-            <img class="portafolio__imagen" src="./assets/cambios.jpg">
-            <img class="portafolio__imagen" src="./assets/dtc.jpg">
-            <img class="portafolio__imagen" src="./assets/ef.jpg">
-            <img class="portafolio__imagen" src="./assets/market.jpg">
-            <img class="portafolio__imagen" src="./assets/nhsocks1.jpg">
-            <img class="portafolio__imagen" src="./assets/nhsocks2.jpg">
-            <img class="portafolio__imagen" src="./assets/ost.png">
-            <img class="portafolio__imagen" src="./assets/ostad.png">
-            <img class="portafolio__imagen" src="./assets/vacaciones.jpg">
-        </section>
-        <!--<img class="presentacion__imagen" src="./assets/Imagen.png" alt="Imagen de Ana Garcia trabajando">-->   
-    </main>
-    <footer class="footer"> 
-        <p>Developed by Marcela Vargas</p>
-    </footer> 
+  <header class="header"> 
+    <nav class="header__menu">
+      <a class="header__menu__link" href="index.html">Home</a> 
+      <a class="header__menu__link" href="about.html">Portfolio</a>
+      <a class="header__menu__link" href="contactme.html">Contact Me</a>
+    </nav>
+  </header> 
+
+  <main>
+    <h1 class="portafolio__titulo">My Portfolio</h1>
+    <section class="portafolio">
+      <!-- Loop for each image -->
+      <img class="portafolio__imagen" src="./assets/ausentismo.jpg" data-image="./assets/ausentismo.jpg" />
+      <img class="portafolio__imagen" src="./assets/cambios.jpg" data-image="./assets/cambios.jpg" />
+      <img class="portafolio__imagen" src="./assets/dtc.jpg" data-image="./assets/dtc.jpg" />
+      <img class="portafolio__imagen" src="./assets/ef.jpg" data-image="./assets/ef.jpg" />
+      <img class="portafolio__imagen" src="./assets/market.jpg" data-image="./assets/market.jpg" />
+      <img class="portafolio__imagen" src="./assets/nhsocks1.jpg" data-image="./assets/nhsocks1.jpg" />
+      <img class="portafolio__imagen" src="./assets/nhsocks2.jpg" data-image="./assets/nhsocks2.jpg" />
+      <img class="portafolio__imagen" src="./assets/ost.png" data-image="./assets/ost.png" />
+      <img class="portafolio__imagen" src="./assets/ostad.png" data-image="./assets/ostad.png" />
+      <img class="portafolio__imagen" src="./assets/vacaciones.jpg" data-image="./assets/vacaciones.jpg" />
+    </section>
+
+    <!-- One shared dialog modal -->
+    <dialog id="imageModal">
+      <div class="modal-content">
+        <button class="close-btn" id="closeModalBtn">&times;</button>
+        <img id="modalImage" src="" alt="Full preview"/>
+      </div>
+    </dialog>
+  </main>
+
+  <footer class="footer"> 
+    <p>Developed by Marcela Vargas</p>
+  </footer> 
+
+  <script>
+    const modal = document.getElementById("imageModal");
+    const modalImg = document.getElementById("modalImage");
+    const closeModalBtn = document.getElementById("closeModalBtn");
+
+    document.querySelectorAll(".portafolio__imagen").forEach(img => {
+      img.addEventListener("click", () => {
+        modalImg.src = img.dataset.image;
+        modal.showModal();
+      });
+    });
+
+    closeModalBtn.addEventListener("click", () => {
+      modal.close();
+    });
+
+    modal.addEventListener("click", (e) => {
+      if (e.target === modal) {
+        modal.close();
+      }
+    });
+  </script>
 </body>
 </html>
