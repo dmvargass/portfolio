@@ -240,6 +240,14 @@ body{
         width: auto; /*Se adapta al elemento padre*/
     }
 
+    .presentacion__contenido__texto{ /*Parrafo*/
+        font-size: 1rem;
+    }
+
+    .presentacion__contenido__titulo{
+        font-size: 2rem;
+    }
+
     .portafolio{
         width: auto;
         padding: 5%;
